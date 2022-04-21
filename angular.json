@@ -27,10 +27,10 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": [
-              "src/app/service/web-sockets.js"
             ]
           },
           "configurations": {

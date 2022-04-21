@@ -1,3 +1,153 @@
 button {
     font-size: 50px;
 }
+
+.gameWindow {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+.gameProperties {
+    height: 110px;
+    background-color: #fce4ec;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 20px; 
+    margin: 0 5px 5px 5px;
+}
+
+.battleFieldSizeProp {
+    border: 2px solid black;
+    margin: 2px;
+    background-color: #e1f5fe;
+}
+
+.firstTurn {
+    border: 2px solid black;
+    margin: 2px;
+    padding: 10px;
+    background-color: #e1f5fe;
+}
+
+.playerScreen {
+    width: 500px;
+    background-color: cadetblue;
+}
+
+.battleField {
+    width: 500px;
+    height: 500px;
+    background-color: darkgray;
+    margin: 0;
+    padding: 0;
+}
+
+.movePanel {
+    height: 100px;
+    width: 500px;
+    background-color: thistle;
+}
+
+.sliders {
+    max-width: 300px;
+    min-width: 200px;
+}
+
+.slidersLabels {
+    align-items: center;
+}
+
+.fieldRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.fieldCol {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    padding: 0;
+    background-color: #80d8ff;
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -o-pre-wrap; /* Opera */
+    white-space: pre-wrap; /* Chrome */
+    word-wrap: break-word; /* IE */
+}
+
+.shipCount {
+    margin-left: 20px;
+    margin-top: 10px;
+    border: 2px solid black;
+    margin: 2px;
+    background-color: #e1f5fe;
+    padding: 10px;
+}
+
+.shipSliders {
+    max-width: 300px;
+    min-width: 200px;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    align-items: flex-start;
+  }
+  
+  mat-radio-button {
+      margin: 0px 0 5px 5px;
+  }
+
+  .firstTurn label {
+      margin-left: 10px;
+      margin-bottom: 0;
+      padding: 0;
+  }
+
+  .moveButton {
+      width: 100%;
+      height: 100%;
+      background-color: greenyellow;
+  }
+
+  .moveButton:hover {
+      cursor: pointer;
+  }
+
+  #startButton {
+    border-bottom-left-radius: 18px; 
+    border-top-left-radius: 18px;
+
+  }
+
+  #startButton:hover {
+      cursor: pointer;
+  }
+
+  .iconbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.nextMoveIcon {
+    position: relative;
+    top: -37px;
+    left: -37px;
+    font-size: 100px;
+}
+
+.gameState {
+    margin-left: 20px;
+}
+
+.gameScreen {
+    width: 100%;
+}

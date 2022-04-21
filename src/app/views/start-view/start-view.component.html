@@ -1,5 +1,70 @@
 
-<button id="connectButton" (click)="wsConnection()">Start</button>
 
-
-<button id="sendDataButton" (click)="wsSendData()">Send data</button>
+<div class="gameWindow">
+    <div id="gameProperties" class="gameProperties displayFlex flexRow" disabled>
+        <button id="startButton" (click)="startGame()" disabled>Start</button>
+        <div class="battleFieldSizeProp displayFlex flexRow">
+            <div class="slidersLabels displayFlex flexColumn">
+                <mat-icon style="font-size: 40px; margin: 5px 5px 0 0; ">swap_vert</mat-icon>
+                <mat-icon style="font-size: 40px; margin: 20px 10px 0 0;">swap_horiz</mat-icon>
+            </div>
+            <div class="sliders displayFlex flexColumn">
+                <mat-slider (input)="changeRows($event)" min="4" max="9" value="5"></mat-slider>
+                <mat-slider (input)="changeCols($event)" min="4" max="9" value="5"></mat-slider>
+            </div>
+        </div>
+        <div class="shipCount displayFlex flexRow">
+            <div class="shipLables displayFlex flexColumn">
+                <label><mat-icon style="color: red;">directions_boat</mat-icon>Large: </label> 
+                <label><mat-icon style="color: yellow;">directions_boat</mat-icon>Medium: </label> 
+                <label><mat-icon style="color: green;">directions_boat</mat-icon>Small: </label> 
+            </div>
+            <div class="shipSliders displayFlex flexColumn">
+                <mat-slider thumbLabel (input)="changeLargeShips($event)" min="0" max="2" value="1"></mat-slider>
+                <mat-slider thumbLabel (input)="changeMediumShips($event)" min="0" max="3" value="1"></mat-slider>
+                <mat-slider thumbLabel (input)="changeSmallShips($event)" min="0" max="4" value="1"></mat-slider>
+            </div>             
+        </div>
+        <div class="firstTurn">
+            <label>First Turn For</label>
+            <mat-radio-group [(ngModel)]="firstTurn" class="example-radio-group" aria-label="Select an option">
+                <mat-radio-button value="0" >Player 1</mat-radio-button>
+                <mat-radio-button value="1" >Player 2</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="gameState">
+            <label>Game state:  </label>
+            <b id="gameStateInfo">No connection</b>
+        </div>
+    </div>
+    <div class="gameScreen displayFlex flexRow flexSpaceAround">
+        <div class="playerScreen displayFlex flexColumn">
+            <div class="battleField" >
+                <div class="fieldRow" 
+                    [style.height]="100 / rows + '%'"
+                    *ngFor="let row of [].constructor(rows); let r=index">
+                    <div class="fieldCol" *ngFor="let column of [].constructor(cols); let c=index">
+                        <button attr.id="bf1c{{c}}r{{r}}" class="cell" mat-raised-button><mat-icon class="shipIcon"></mat-icon></button>
+                    </div>
+                </div>
+            </div>
+            <div class="movePanel">
+                <button id="player1Button" class="moveButton iconbtn" (click)="player1Move()">Shoot <mat-icon class="nextMoveIcon">arrow_right</mat-icon></button>
+            </div>
+        </div>
+        <div class="playerScreen displayFlex flexColumn">
+            <div class="battleField" >
+                <div class="fieldRow" 
+                    [style.height]="100 / rows + '%'"
+                    *ngFor="let row of [].constructor(rows); let r=index">
+                    <div class="fieldCol" *ngFor="let column of [].constructor(cols); let c=index">
+                        <button attr.id="bf2c{{c}}r{{r}}" class="cell" mat-raised-button><mat-icon class="shipIcon"></mat-icon></button>
+                    </div>
+                </div>
+            </div>
+            <div class="movePanel">
+                <button id="player2Button" class="moveButton iconbtn" (click)="player2Move()"><mat-icon class="nextMoveIcon">arrow_left</mat-icon> Shoot</button>
+            </div>
+        </div>
+    </div>
+</div>

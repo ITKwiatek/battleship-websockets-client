@@ -3,22 +3,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavComponent } from './views/layout/nav/nav.component';
 import { StartViewComponent } from './views/start-view/start-view.component';
-import { BattleViewComponent } from './views/battle-view/battle-view.component';
+import { MatSlider, MatSliderModule } from '@angular/material/slider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import {MatRadioModule} from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
+import { WebsocketService } from './service/websocket.service';
+import { MessageService } from './service/message.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
     StartViewComponent,
-    BattleViewComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSliderModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatRadioModule ,
+    FormsModule
   ],
-  providers: [],
+  providers: [WebsocketService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
